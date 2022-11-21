@@ -1,5 +1,6 @@
 package TestCases;
 
+import Utilities.Driver;
 import Utilities.WebDriverFactory;
 import Utilities.ConfigurationReader;
 import org.junit.jupiter.api.Test;
@@ -8,18 +9,25 @@ import org.openqa.selenium.WebDriver;
 public class testProperties {
 
     @Test
-    public void t1(){
+    public void t1() {
 
-        String browserType= ConfigurationReader.get("browser");
+        String browserType = ConfigurationReader.get("browser");
         System.out.println("browser tupe is " + browserType);
 
-        String url= ConfigurationReader.get("url1");
-       // WebDriver driver=WebDriverFactory
+        String url = ConfigurationReader.get("url1");
+        // WebDriver driver=WebDriverFactory
     }
-    @Test
-    public void  open (){
 
-        WebDriver driver= WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
+    @Test
+    public void open() {
+
+        WebDriver driver = WebDriverFactory.getDriver(ConfigurationReader.get("browser"));
+        driver.get(ConfigurationReader.get("url1"));
+    }
+
+    @Test
+    public void openh() {
+        WebDriver driver = Driver.get();
         driver.get(ConfigurationReader.get("url1"));
     }
 }
